@@ -1,0 +1,26 @@
+Type: Package
+Package: leanRcoding
+Title: Leaner R coding
+Version: 0.0.0.9000
+Author: Lars Jordanger
+Maintainer: Lars Jordanger <lars.jordanger@gmail.com>
+Description: A collection of tools to simplify the task of working
+   with arrays, doing bookkeeping, and in addition a few functions
+   to help working with calls.
+Depends: R (>= 3.3.2)
+License: GPL-2
+Imports: 
+    abind,
+    foreach,
+    magrittr,
+    plyr,
+    pryr,
+    stringr
+Suggests: knitr,
+    rmarkdown,
+    network,
+    testthat
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+RoxygenNote: 5.0.1
