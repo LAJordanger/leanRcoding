@@ -4,7 +4,8 @@
 ## #' @importFrom pryr where dots object_size ast #' @importFrom stats
 ## is.ts setNames #' @importFrom utils capture.output combn
 ## getAnywhere glob2rx head #' ls.str str tail
-#' @importFrom abind abind adrop
+
+#' @importFrom abind abind adrop afill<-
 #' @importFrom foreach %dopar% foreach getDoParWorkers
 #' @importFrom plyr is.quoted
 #' @importFrom pryr dots where
