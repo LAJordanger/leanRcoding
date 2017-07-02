@@ -8,6 +8,8 @@
 ## #' @importFrom stats is.ts setNames
 ## #' @importFrom utils capture.output combn getAnywhere glob2rx head
 ## #'     ls.str str tail
+#' @importFrom abind adrop
+#' @importFrom plyr is.quoted
 #' @importFrom pryr dots where
 #' @importFrom stringr str_wrap str_detect str_split str_replace
 #' @importFrom utils capture.output combn getAnywhere glob2rx head tail

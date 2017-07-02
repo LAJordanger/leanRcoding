@@ -12,11 +12,10 @@ Depends:
 License: GPL-2
 Imports:
     abind,
-    foreach,
-    magrittr,
     plyr,
     pryr,
-    stringr
+    stringr,
+    utils
 Suggests:
     knitr,
     rmarkdown,
