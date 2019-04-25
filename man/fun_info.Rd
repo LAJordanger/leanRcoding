@@ -27,4 +27,3 @@ is exported from these packages, and the formals of these
 functions.  If the function also can be found in \code{.GlobalEnv},
 then it will be registered with package given as \code{"NULL"}.
 }
-

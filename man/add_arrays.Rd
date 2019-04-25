@@ -34,4 +34,3 @@ intermediate step will be performed to properly align the arrays.
 If one array has fewer dimensions than the other, then the product
 will be performed by recycling of vectors.
 }
-

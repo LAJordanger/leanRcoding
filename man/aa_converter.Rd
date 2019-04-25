@@ -24,4 +24,3 @@ An array with a full set of dimension-names.
 This function attempts to return an array with a full set of
 dimension-names.
 }
-

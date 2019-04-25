@@ -45,4 +45,3 @@ positioned - which can be a rather frustrating task to undertake.
 This function will in those cases take care of most of the pesky
 details for us.
 }
-

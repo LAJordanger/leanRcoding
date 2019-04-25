@@ -25,4 +25,3 @@ has been loaded, and that the function is known to exist inside of
 it.  The reason for this simplifying assumptions is due to the way
 this function is used at the moment of writing.
 }
-

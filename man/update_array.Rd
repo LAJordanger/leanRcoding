@@ -39,4 +39,3 @@ Arrays are awesome, but it can alas be agonising to keep
 track of the dimension-names.  This function frees the user from
 such frustrations.
 }
-

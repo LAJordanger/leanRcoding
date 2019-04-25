@@ -44,4 +44,3 @@ document the random number generator used to obtain the values.
 See the help-page of \code{Random} for details about the three
 arguments \code{kind}, \code{normal.kind} and \code{vstr}.
 }
-

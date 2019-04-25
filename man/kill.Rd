@@ -64,4 +64,3 @@ The "keep it tidy"-rule is useful when writing longer
     "clutters up the code", so that's the reason for the existence
     of this function.
 }
-

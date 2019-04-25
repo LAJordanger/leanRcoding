@@ -63,4 +63,3 @@ subsets of the original array to be visualised, since an initial
 conversion to list of suitable sub-arrays might speed up the
 extraction of relevant slices later on.
 }
-

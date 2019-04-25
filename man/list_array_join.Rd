@@ -37,4 +37,3 @@ smaller chunks due to large intermediate objects, whereas the
 resulting lists of arrays themselves are rather small, e.g. when
 some statistics are to be computed during a bootstrap procedure.
 }
-

@@ -27,4 +27,3 @@ time series with the re-sampled alternatives, and that this should
 suffice to rerun the analysis with the original specifications of
 the remaining arguments.
 }
-

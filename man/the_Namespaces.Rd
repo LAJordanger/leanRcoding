@@ -4,8 +4,8 @@
 \alias{the_Namespaces}
 \title{A function that returns information about the loaded namespaces.}
 \usage{
-the_Namespaces(.ns, .details = TRUE, .pattern, .type = c("all", "exported",
-  "internal"))
+the_Namespaces(.ns, .details = TRUE, .pattern, .type = c("all",
+  "exported", "internal"))
 }
 \arguments{
 \item{.ns}{An optional argument that can be used if it's of
@@ -58,4 +58,3 @@ If \code{.details} is \code{FALSE}, the result will simply
 This function inspects the loaded namespaces, and returns
 information in accordance with the user-defined specifications.
 }
-

@@ -5,7 +5,8 @@
 \title{Test an object for several properties.}
 \usage{
 is_testing(obj, .is = NULL, .is_criteria = c("any", "all"),
-  .is_not = NULL, .length = NULL, .env = parent.frame(), .loop = FALSE)
+  .is_not = NULL, .length = NULL, .env = parent.frame(),
+  .loop = FALSE)
 }
 \arguments{
 \item{obj}{The object to be tested}
@@ -64,4 +65,3 @@ WARNING: This function, in it's present incarnation, might
     argument that can be used when the function calls itself
     iteratively).
 }
-

@@ -49,4 +49,3 @@ functions.  When these lists are recursive, this function can
 simplify the remaining code by creating a skeleton for the desired
 structure, based on the names to be used at the different levels.
 }
-

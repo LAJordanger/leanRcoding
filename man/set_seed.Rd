@@ -143,4 +143,3 @@ identical(.a, .b)
 ## Note: The creation of the code does not evaluate
 ## the 'expr'-argument.
 }
-

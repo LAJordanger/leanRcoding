@@ -4,8 +4,9 @@
 \alias{split_vector}
 \title{Split a vector into smaller pieces}
 \usage{
-split_vector(vec, pieces, allow_extra_pieces = FALSE, compute_name = NULL,
-  subset_name = NULL, add_to_compute = NULL, position = 1)
+split_vector(vec, pieces, allow_extra_pieces = FALSE,
+  compute_name = NULL, subset_name = NULL, add_to_compute = NULL,
+  position = 1)
 }
 \arguments{
 \item{vec}{The vector we want to split.}
@@ -60,4 +61,3 @@ used in \code{splitting} that aims to avoid out-of-memory errors
 that stays below a memory-limit. It does also allow additional stuff
 to be stored in the result, see details below.
 }
-

@@ -67,4 +67,3 @@ helper for the functions \code{update_call} and
 since the result contains some attributes that can be handy to use
 in tests that compare the content of \code{x} against \code{table}.
 }
-

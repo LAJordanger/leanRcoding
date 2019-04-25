@@ -31,4 +31,3 @@ This function will from a list of disjoint dimension-names (for a
 set of sub-arrays) create a single dimension-name to be used for an
 array that can be used to store the stuff from the sub-arrays.
 }
-

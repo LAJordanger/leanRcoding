@@ -60,4 +60,3 @@ A call can simplify code at one point of a function at the
     thus simplifies the task of creating and using calls when
     programming, which often can make the code much leaner.
 }
-

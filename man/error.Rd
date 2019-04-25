@@ -4,8 +4,9 @@
 \alias{error}
 \title{Create error-messages.}
 \usage{
-error(..., .argument = NULL, n = 1, fun_stack = TRUE, quoted = FALSE,
-  width = 80, indent = 4, exdent = 4, call. = FALSE, domain = NULL)
+error(..., .argument = NULL, n = 1, fun_stack = TRUE,
+  quoted = FALSE, width = 80, indent = 4, exdent = 4,
+  call. = FALSE, domain = NULL)
 }
 \arguments{
 \item{...}{A collection of vectors or lists containing the stuff
@@ -76,4 +77,3 @@ This function wraps around \code{stop} and \code{str_wrap} from the
 including detailed error-messages in the code without to much fuzz.
 It's also possible to get a quoted result.
 }
-

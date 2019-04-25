@@ -82,4 +82,3 @@ function can extract a variety of information, that other functions
 can piggyback on instead of having to include large chunks of
 similar code.
 }
-

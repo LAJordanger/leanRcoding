@@ -34,4 +34,3 @@ This function will identify the numerical indices that corresponds
 to a selection based on a character vector, by comparing it to a
 list representing the dimension-names to be used.
 }
-

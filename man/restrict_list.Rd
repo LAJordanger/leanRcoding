@@ -29,4 +29,3 @@ This function is mainly intended to simplify the task of working
 with list where some of the nodes are arrays, but it could be that
 it also could be of use in other cases.
 }
-

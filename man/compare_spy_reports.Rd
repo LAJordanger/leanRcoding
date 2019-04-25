@@ -4,7 +4,8 @@
 \alias{compare_spy_reports}
 \title{Compare two spy-reports.}
 \usage{
-compare_spy_reports(first_report, second_report, ignore_these = character(0))
+compare_spy_reports(first_report, second_report,
+  ignore_these = character(0))
 }
 \arguments{
 \item{first_report}{The first of the spy-reports.}
@@ -33,4 +34,3 @@ Either \code{TRUE} or \code{FALSE} will be returned,
 This function compares two different spy-reports (created by
 \code{spy}).
 }
-

@@ -26,4 +26,3 @@ a wrapper for \code{abind}, it will be slightly slower, but the
 effect is tiny for large arrays and it simplifies the writing of
 the code in other functions.
 }
-

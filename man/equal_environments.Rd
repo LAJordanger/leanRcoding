@@ -33,4 +33,3 @@ This function is mainly intended as a helper-function for
     but that would require the addition of a safeguard against
     infinite recursions.
 }
-

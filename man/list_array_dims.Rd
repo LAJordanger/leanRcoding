@@ -21,4 +21,3 @@ The list given to \code{.list} will be returned with
 This function simplifies the task of working with list where some
 of the nodes are arrays.
 }
-

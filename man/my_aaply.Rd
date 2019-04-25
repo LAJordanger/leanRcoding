@@ -56,4 +56,3 @@ bigger chunks when sending stuff to the available cores, which
 might reduce the overhead a bit.  But this will require another
 design of the function, which I can't use time on.
 }
-

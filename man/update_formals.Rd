@@ -44,4 +44,3 @@ The \code{dotsMethods}, i.e.  \code{...}, allows
     updates any common components and ignores the part of
     \code{...} that has no relevance.
 }
-

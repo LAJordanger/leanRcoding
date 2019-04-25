@@ -22,4 +22,3 @@ primarily where an argument either can be given as an environment
 or as a list/vector -- and where it's required to use the names in
 some way or another.
 }
-

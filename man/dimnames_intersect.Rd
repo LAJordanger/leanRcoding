@@ -29,4 +29,3 @@ format of the resulting intersection.  Warning: The result of this
 function can be an empty list, so keep in mind that your code can
 deal with that if you want to use this in a function.
 }
-

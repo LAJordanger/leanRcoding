@@ -39,4 +39,3 @@ which case any statement regarding a given \code{level} of a
 \code{list} must be preceeded by a test of the kind
 \code{!identical(list$level, NULL)}.
 }
-
