@@ -1,6 +1,3 @@
-################################################################################
-#####  2015-05-15
-
 #' Bind arrays together, based on their dimension names.
 #'
 #' This function is a wrapper for \code{abind} that binds a bunch of
@@ -14,7 +11,22 @@
 #'     will be ignored) that we want to put together into a larger
 #'     array.  The arrays must have the same number of dimensions with
 #'     properly named dimension names.  The dimension names of these
-#'     arrays must pairwise have empty intersections.
+#'     arrays must pairwise have empty intersections.  It is also
+#'     possible to give a list of arrays, in which case the other two
+#'     arguments are needed too.
+#'
+#' @param .list Logical value, default \code{FALSE}, that can be used
+#'     to feed a list of arrays into the function.  The list does not
+#'     need names if the arrays have non-overlapping dimension-names.
+#'     It is allowed to have a list where all the dimension-names are
+#'     identical, but in this case the list must have unique names
+#'     that can be used to adjust the dimension-names of the arrays in
+#'     it.
+#'
+#' @param .list_new.nn A character string, default \code{"..NEW.."},
+#'     that will be used as the name of the new dimension when a list
+#'     of arrays must have its dimension-names adjusted,
+#'     cf. discussion related to the \code{.list}-argument.
 #'
 #' @return A larger array containing all of the smaller ones, put
 #'     together by the help of \code{abind} along a dimension selected
@@ -22,11 +34,15 @@
 #'
 #' @export
 
-
-
-
-my_abind <- function(...) {
+my_abind <- function(..., .list = FALSE, .list_new.dnn = "..NEW..") {
     arg_list <- list(...)
+###-------------------------------------------------------------------
+    ##  Extract the first element when '.list' equals TRUE, and
+    ##  something has been added.
+    if (all(.list,
+            length(arg_list) > 0) )
+        arg_list <- eval(expr = arg_list[[1]],
+                         envir = sys.parent(1))
 ###-------------------------------------------------------------------
     ##  Ignore any components that are given as 'NULL'
     arg_list <- arg_list[! vapply(
@@ -57,6 +73,48 @@ my_abind <- function(...) {
     dimnames_list <- lapply(
         X = arg_list,
         FUN = dimnames)
+    ##  If '.list' is 'TRUE', then it is possible that all the arrays
+    ##  do have the same dimension-names, and in this case the
+    ##  dimension-names should be tweaked with the names of the list
+    ##  in order to get things up and running.
+    if (.list) {
+        ##  Check for equality of all the dimnames.
+        .all_equal <- all(vapply(X = seq_along(dimnames_list),
+               FUN = function(i) {
+                   identical(
+                       x = dimnames_list[[1]],
+                       y = dimnames_list[[i]])
+               },
+               FUN.VALUE = logical(1)))
+        if (.all_equal) {
+            ##  Find the names in the 'arg_list', check that they
+            ##  exist and are unique, and then adjust the dimension
+            ##  and dimension-names of the arrays.
+            .new_names <- names(arg_list)
+            if (any(length(.new_names) == 0,
+                    length(.new_names) != length(unique(.new_names)))) {
+                error("The list of arrays must contain unique names.")
+            } else {
+                ##  Adjust the dimensions to remove overlapping.
+                .dim <- dim(arg_list[[1]])
+                .dimnames <- dimnames(arg_list[[1]])
+                for (i in seq_along(arg_list)) {
+                    .new_dim <- c(.dim, 1)
+                    .new_dn <- c(.dimnames,
+                                 list(names(arg_list)[i]))
+                    names(.new_dn) <- c(names(.dimnames),
+                                        .list_new.dnn)
+                    dim(arg_list[[i]]) <- .new_dim
+                    dimnames(arg_list[[i]]) <- .new_dn
+                }
+                kill(i, .dim, .dimnames, .new_dim, .new_dn)
+            }
+            ##  Recompute the dimension names of the arrays.
+            dimnames_list <- lapply(
+                X = arg_list,
+                FUN = dimnames)
+        }
+    }
     ##  Find dimnames for the result based on 'dimnames_list', this
     ##  also checks that the names of the dimensions match up.
     new_dimnames <- dimnames_union(
