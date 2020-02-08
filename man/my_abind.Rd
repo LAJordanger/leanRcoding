@@ -23,7 +23,7 @@ identical, but in this case the list must have unique names
 that can be used to adjust the dimension-names of the arrays in
 it.}
 
-\item{.list_new.nn}{A character string, default \code{"..NEW.."},
+\item{.list_new.dnn}{A character string, default \code{"..NEW.."},
 that will be used as the name of the new dimension when a list
 of arrays must have its dimension-names adjusted,
 cf. discussion related to the \code{.list}-argument.}
