@@ -145,7 +145,7 @@ update_formals <- function(.fun, ..., .list=FALSE) {
     ##  Divide 'dot_content' into 'dots_args' and 'ordinary_args'.
     dots_args <-
         setdiff(
-            x = sort(dot_content),
+            x = dot_content,
             y = names(FUN_formals))
     ordinary_args <-
         setdiff(
