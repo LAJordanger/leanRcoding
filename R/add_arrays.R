@@ -1,6 +1,3 @@
-################################################################################
-#####  2014-11-30
-
 #' Add arrays based on dimension-names, using recycling
 #'
 #' Given two arrays with a full set of named dimension-names that
@@ -11,27 +8,47 @@
 #' will be performed by recycling of vectors.
 #'
 #' @param .arr1 The first array in the sum, if \code{.arr} has the
-#' same size (but not necessarily the same shape), the result will be
-#' given in the shape of \code{.arr1}
+#'     same size (but not necessarily the same shape), the result will
+#'     be given in the shape of \code{.arr1}.  The case where
+#'     \code{.arr1} has length 1 (as a vector) will be treated as a
+#'     corner case and that single number will then be added to
+#'     \code{.arr2} without taking into account any requirements
+#'     related to the dimension-names used on \code{.arr1}.
 #'
-#' @param .arr2 The second array in the sum.
+#' @param .arr2 The second array in the sum.  The case where
+#'     \code{.arr2} has length 1 (as a vector) will be treated as a
+#'     corner case and that single number will then be added to
+#'     \code{.arr1} without taking into account any requirements
+#'     related to the dimension-names used on \code{.arr2}.
 #'
-#' @param keep_shape A logig argument, default value \code{FALSE} that
-#' only is used when recycling is needed in order to perform the sum.
-#' If the shape of the resulting array doesn't matter, then the
-#' default will avoid an extra permutation at the end of the
-#' computation.
+#' @param keep_shape A logic argument, default value \code{FALSE} that
+#'     only is used when recycling is needed in order to perform the
+#'     sum.  If the shape of the resulting array doesn't matter, then
+#'     the default will avoid an extra permutation at the end of the
+#'     computation.
 #'
 #' @return When \code{.arr1} and \code{.arr2} have the same size, the
-#' result will be the sum of them in the shape of \code{.arr1}.  If
-#' one of them has fewer dimensions than the other, then recycling
-#' will be performed and the result will be given in the shape of the
-#' largest one.
+#'     result will be the sum of them in the shape of \code{.arr1}.
+#'     If one of them has fewer dimensions than the other, then
+#'     recycling will be performed and the result will be given in the
+#'     shape of the largest one.  It is allowed to have as a corner
+#'     case that one (or both) of the array-arguments can be a length one
+#'     vector, in which case a standard summation will be performed.
 #'
 #' @export
 
 
 add_arrays <- function(.arr1, .arr2, keep_shape = FALSE) {
+    ##  Investigate if a corner case has been encountered, i.e. where
+    ##  one of the arrays is given as a vector of length 1.
+    if (length(.arr1) == 1) {
+        attributes(.arr1) <- NULL
+        return(.arr1 + .arr2)
+    }
+    if (length(.arr2) == 1) {
+        attributes(.arr2) <- NULL
+        return(.arr1 + .arr2)
+    }
 ###-------------------------------------------------------------------
     ##  Initial sanity check of dimension-names, are they there?
     dn.arr1 <- dimnames(.arr1)

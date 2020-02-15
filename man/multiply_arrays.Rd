@@ -7,24 +7,35 @@
 multiply_arrays(.arr1, .arr2, keep_shape = FALSE)
 }
 \arguments{
-\item{.arr1}{The first array in the product, if \code{.arr2} has the
-same size (but not necessarily the same shape), the result will be
-given in the shape of  \code{.arr1}}
+\item{.arr1}{The first array in the product, if \code{.arr2} has
+the same size (but not necessarily the same shape), the result
+will be given in the shape of \code{.arr1}.  The case where
+\code{.arr1} has length 1 (as a vector) will be treated as a
+corner case and that single number will then be multiplied with
+\code{.arr2} without taking into account any requirements
+related to the dimension-names used on \code{.arr1}.}
 
-\item{.arr2}{The second array in the product.}
+\item{.arr2}{The second array in the product.  The case where
+\code{.arr2} has length 1 (as a vector) will be treated as a
+corner case and that single number will then be multiplied with
+\code{.arr1} without taking into account any requirements
+related to the dimension-names used on \code{.arr2}.}
 
-\item{keep_shape}{A logig argument, default value \code{FALSE} that
+\item{keep_shape}{A logic argument, default value \code{FALSE} that
 only is used when recycling is needed in order to perform the
-product.  If the shape of the resulting array doesn't matter, then
-the default will avoid an extra permutation at the end of the
-computation.}
+product.  If the shape of the resulting array doesn't matter,
+then the default will avoid an extra permutation at the end of
+the computation.}
 }
 \value{
 When \code{.arr1} and \code{.arr2} have the same size, the
-result will be the product of them in the shape of \code{.arr1}.
-If one of them has fewer dimensions than the other, then recycling
-will be performed and the result will be given in the shape of the
-largest one.
+    result will be the product of them in the shape of
+    \code{.arr1}.  If one of them has fewer dimensions than the
+    other, then recycling will be performed and the result will be
+    given in the shape of the largest one.  It is allowed to have
+    as a corner case that one (or both) of the array-arguments can
+    be a length one vector, in which case a standard product will
+    be performed.
 }
 \description{
 Given two arrays with a full set of named dimension-names that
