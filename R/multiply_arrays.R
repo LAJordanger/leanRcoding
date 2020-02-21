@@ -10,16 +10,14 @@
 #' @param .arr1 The first array in the product, if \code{.arr2} has
 #'     the same size (but not necessarily the same shape), the result
 #'     will be given in the shape of \code{.arr1}.  The case where
-#'     \code{.arr1} has length 1 (as a vector) will be treated as a
-#'     corner case and that single number will then be multiplied with
-#'     \code{.arr2} without taking into account any requirements
-#'     related to the dimension-names used on \code{.arr1}.
+#'     \code{.arr1} is a single number (dimensionless) will be treated
+#'     as an exception, in which case that single number will be
+#'     multiplied with \code{.arr2}.
 #'
 #' @param .arr2 The second array in the product.  The case where
-#'     \code{.arr2} has length 1 (as a vector) will be treated as a
-#'     corner case and that single number will then be multiplied with
-#'     \code{.arr1} without taking into account any requirements
-#'     related to the dimension-names used on \code{.arr2}.
+#'     \code{.arr2} is a single number (dimensionless) will be treated
+#'     as an exception, in which case that single number will be
+#'     multiplied with \code{.arr1}.
 #'
 #' @param keep_shape A logic argument, default value \code{FALSE} that
 #'     only is used when recycling is needed in order to perform the
@@ -32,21 +30,21 @@
 #'     \code{.arr1}.  If one of them has fewer dimensions than the
 #'     other, then recycling will be performed and the result will be
 #'     given in the shape of the largest one.  It is allowed to have
-#'     as a corner case that one (or both) of the array-arguments can
-#'     be a length one vector, in which case a standard product will
-#'     be performed.
+#'     as an exception the case where one (or both) of the
+#'     array-arguments is a single number (dimensionless), in which
+#'     case a standard product will be performed.
 #'
 #' @export
-
+ 
 multiply_arrays <- function(.arr1, .arr2, keep_shape = FALSE) {
-    ##  Investigate if a corner case has been encountered, i.e. where
-    ##  one of the arrays is given as a vector of length 1.
-    if (length(.arr1) == 1) {
-        attributes(.arr1) <- NULL
+    ##  Investigate if an exception has been encountered, i.e. where
+    ##  one of the arrays is given as a single dimensionless number.
+    if (all(is.null(dim(.arr1)),
+            length(.arr1) == 1)) {
         return(.arr1 * .arr2)
     }
-    if (length(.arr2) == 1) {
-        attributes(.arr2) <- NULL
+    if (all(is.null(dim(.arr2)),
+             length(.arr2) == 1)) {
         return(.arr1 * .arr2)
     }
 ###-------------------------------------------------------------------
